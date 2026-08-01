@@ -1,0 +1,24 @@
+// Last updated: 8/1/2026, 6:21:08 PM
+class Solution {
+public:
+    string reverseWords(string s) {
+        int n = s.size();
+        string ans = "";
+        reverse(s.begin(), s.end());
+
+        for (int i = 0; i < n; i++) {
+            string word = "";
+            while (i < n && s[i] != ' ') {
+                word += s[i];
+                i++;
+            }
+
+            reverse(word.begin(), word.end());
+            if (word.size() > 0) {
+                ans += " " + word;
+            }
+        }
+
+        return ans.substr(1);
+    }
+};
